@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="charSelect" id="firstSelect">
+                <select name="char" id="char1">
+                    <option value="" selected hidden disabled>Select Character</option>
+                    <option value="Luke">Luke</option>
+                    <option value="R2-D2">R2-D2</option>
+                    <option value="C-3PO">C-3PO</option>
+                </select>
+                <button id="generateOne">Generate Character</button>
+                <div class="firstChar">1</div>
+            </div>
+            <div class="charSelect" id="secondSelect">
+                <select name="char" id="char2">
+                    <option value="" selected hidden disabled>Select Character</option>
+                    <option value="Luke">Luke</option>
+                    <option value="R2-D2">R2-D2</option>
+                    <option value="C-3PO">C-3PO</option>
+                </select>
+                <button id="generateTwo">Generate Character</button>
+                <div class="secondChar">2</div>
+            </div>
+        </div>
+        <button id="btn">Battle</button>
+
+    </div>
+
+</body>
+
+</html>
