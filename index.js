@@ -44,16 +44,18 @@ let secondList = [];
 firstButton.addEventListener("click", async () => {
   firstList = [];
   oneCharContainer.innerHTML = "";
-  getCharacter(firstSelect, firstList, oneCharContainer);
+  let firstChar = "firstCharacter";
+  getCharacter(firstSelect, firstList, oneCharContainer, firstChar);
 });
 
 secondButton.addEventListener("click", async () => {
   secondList = [];
   twoCharContainer.innerHTML = "";
-  getCharacter(secondSelect, secondList, twoCharContainer);
+  let secondChar = "secondCharacter";
+  getCharacter(secondSelect, secondList, twoCharContainer, secondChar);
 });
 
-let getCharacter = async (selected, array, container) => {
+let getCharacter = async (selected, array, container, string) => {
   let selectedCharacter = selected.value;
   //Skickar SelectedCharacter1 till getData och blir "selectedCharacter"
   let character = await getData(selectedCharacter);
@@ -79,7 +81,7 @@ let getCharacter = async (selected, array, container) => {
 
   let heightText = document.createElement("p");
   heightText.innerText = `Height: ${character.height}`;
-  heightText.id = "heightBar1";
+  heightText.classList.add(string);
 
   let massText = document.createElement("p");
   massText.innerText = `Weight: ${character.mass}`;
@@ -140,14 +142,19 @@ document.querySelector("#btn").addEventListener("click", () => {
   console.log(firstList, secondList);
   console.log(firstList[0].height, secondList[0].height);
   //HEIGHT CHECK
-  let heightBar1 = document.querySelector("#heightBar1");
-  let heightBar2 = document.querySelector("#heightBar2");
+  let heightBar1 = document.querySelector(".firstCharacter");
+  let heightBar2 = document.querySelector(".secondCharacter");
   if (firstList[0].height > secondList[0].height) {
+    console.log(heightBar1);
     heightBar1.style.background = "green";
   } else if (firstList[0].height < secondList[0].height) {
     heightBar2.style.background = "green";
   }
   // WEIGHT CHECK
+
+  if (firstList[0].weight > secondList[0].weight) {
+    massText.style.color = "green";
+  }
   //AMOUT OF MOVIES
   // same gender?
   //Same haircolor
